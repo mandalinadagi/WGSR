@@ -1,0 +1,91 @@
+{
+    "name": "sym7_01L1_001lhhl_008hh_0002lh2hl2_0003hh2_0005adv_1dists_60k",
+    "use_tb_logger": true,
+    "model": "srragan",
+    "scale": 4,
+    "gpu_ids": [
+        0
+    ],
+    "datasets": {
+        "train": {
+            "name": "DIV2K",
+            "mode": "LRHR",
+            "dataroot_HR": "/kuacc/users/ckorkmaz14/datasets/DIV2K/DIV2K_train_HR/",
+            "dataroot_LR": "/kuacc/users/ckorkmaz14/datasets/DIV2K/DIV2K_train_LR_bicubic/X4/",
+            "subset_file": null,
+            "use_shuffle": true,
+            "n_workers": 8,
+            "batch_size": 16,
+            "HR_size": 128,
+            "use_flip": true,
+            "use_rot": true
+        },
+        "val": {
+            "name": "val_DIV2K",
+            "mode": "LRHR",
+            "dataroot_HR": "/kuacc/users/ckorkmaz14/datasets/DIV2K/DIV2K_valid_HR/",
+            "dataroot_LR": "/kuacc/users/ckorkmaz14/datasets/DIV2K/DIV2K_valid_LR_bicubic/X4/"
+        }
+    },
+    "path": {
+        "root": "/kuacc/users/ckorkmaz14/hpc_run/mask_guided_wavelet_sr/",
+        "pretrain_model_G": "/kuacc/users/ckorkmaz14/hpc_run/mask_guided_wavelet_sr/pretrained_model/RRDB_PSNR_x4_old_arch.pth"
+    },
+    "network_G": {
+        "which_model_G": "RRDB_net",
+        "norm_type": null,
+        "mode": "CNA",
+        "nf": 64,
+        "nb": 23,
+        "in_nc": 3,
+        "out_nc": 3,
+        "gc": 32,
+        "group": 1
+    },
+    "network_D": {
+        "which_model_D": "discriminator_vgg_128",
+        "norm_type": "batch",
+        "act_type": "leakyrelu",
+        "mode": "CNA",
+        "nf": 64,
+        "in_nc": 6
+    },
+    "train": {
+        "lr_G": 0.0001,
+        "weight_decay_G": 0,
+        "beta1_G": 0.9,
+        "lr_D": 0.0001,
+        "weight_decay_D": 0,
+        "beta1_D": 0.9,
+        "lr_scheme": "MultiStepLR",
+        "lr_steps": [
+            50000,
+            100000,
+            200000,
+            300000
+        ],
+        "lr_gamma": 0.5,
+        "wavelet_filter": "sym7",
+        "wavelet_level": 1,
+        "pixel_criterion": "l1",
+        "pixel_weight": 0.1,
+        "pixel_weight_lh": 0.01,
+        "pixel_weight_hl": 0.01,
+        "pixel_weight_hh": 0.05,
+        "_comment:": "if wavelet decomposition level is 2, set the following 3 variables, else keep them as zero",
+        "pixel_weight_lh2": 0,
+        "pixel_weight_hl2": 0,
+        "pixel_weight_hh2": 0,
+        "feature_criterion": "l1",
+        "feature_weight": 1,
+        "gan_type": "vanilla",
+        "gan_weight": 0.005,
+        "manual_seed": 0,
+        "niter": 60001,
+        "val_freq": 20000.0
+    },
+    "logger": {
+        "print_freq": 2000,
+        "save_checkpoint_freq": 20000.0
+    }
+}

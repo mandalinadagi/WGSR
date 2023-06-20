@@ -1,0 +1,8 @@
+**/.ipynb_checkpoints/
+**/__pycache__/
+**/.$*.bkp/
+**/.$*.drawio.bkp/
+**/.$*.drawio.dtmp/
+**/datasets/
+**/pretrained_model/
+*.pth
