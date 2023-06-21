@@ -1,4 +1,4 @@
 # ESRGAN-WG
 
 ## Architecture
-![architecture](figures/architecture_all.pdf)
+[architecture](figures/architecture_all.pdf)
