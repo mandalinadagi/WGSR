@@ -1,14 +1,22 @@
 # WGSR  
-> In CVPR 2024
-### Training Generative Image Super-Resolution Models by Wavelet-Domain Losses Enables Better Control of Artifacts [[Paper Link]]
+> in
+
+### Training Generative Image Super-Resolution Models by Wavelet-Domain Losses Enables Better Control of Artifacts 
+[Paper Link]() | [Supplementary Material]()
 [Cansu Korkmaz](https://mandalinadagi.github.io/), [A. Murat Tekalp](http://home.ku.edu.tr/~mtekalp/), [Zafer Dogan](https://mysite.ku.edu.tr/zdogan/)
+
 
 <p align="center">
   <img height="250" src="./figures/architecture.png">
 </p>
 
-## Architecture
-[architecture](figures/architecture_all.pdf)
+<img src="./figures/img0.png" width="800"/>
+
+## SR 4X Results on [DIV2K Validation Set] (https://data.vision.ee.ethz.ch/cvl/DIV2K/)
+<img src="./figures/img1.png" width="800"/>
+<img src="./figures/img2.png" width="800"/>
+
+
 
 ### Getting Start
 
