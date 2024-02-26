@@ -1,11 +1,10 @@
 {
-    "name": "sym7_01L1_001lhhl_008hh_0002lh2hl2_0003hh2_0005adv_1dists_60k",
+    "name": "WGSR",
     "use_tb_logger": true,
     "model": "srragan",
     "scale": 4,
-    "gpu_ids": [
-        0
-    ],
+    "gpu_ids": [0]
+    ,
     "datasets": {
         "train": {
             "name": "DIV2K",
