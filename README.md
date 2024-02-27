@@ -1,5 +1,5 @@
 # WGSR  
-> In
+> In CVPR 2024
 
 ### Training Generative Image Super-Resolution Models by Wavelet-Domain Losses Enables Better Control of Artifacts 
 [Paper Link]() | [Supplementary Material]()
