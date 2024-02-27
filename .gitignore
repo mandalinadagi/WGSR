@@ -3,6 +3,5 @@
 **/.$*.bkp/
 **/.$*.drawio.bkp/
 **/.$*.drawio.dtmp/
-**/datasets/
-**/pretrained_model/
-*.pth
+**/.pth
+LR/**

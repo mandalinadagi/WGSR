@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ## How To Test
 	1. Place your low-resolution images in `test_image/LR` folder.
 	2. Download pretrained models from [Google Drive]() and place them in `test_image/pretrained_models`.
-	2. Run the command: `python test_image/test.py test_image/pretrained_models/nESRGANplus.pth` (or any other models).
+	2. Run the command: `python test_image/test.py test_image/pretrained_models/WGSR_1lvl_G.pth` (or any other models).
 	3. The results are in `test_image/results` folder.
 
 ## How to Train
