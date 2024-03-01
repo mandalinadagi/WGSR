@@ -11,8 +11,6 @@
   <img height="250" src="./figures/architecture.png">
 </p>
 
-<img src="./figures/img0.png" width="100"/>
-
 ### SR 4X Results on [DIV2K Validation Set](https://data.vision.ee.ethz.ch/cvl/DIV2K/)
 <img src="./figures/img1.png" width="800"/>
 <img src="./figures/img2.png" width="800"/>
