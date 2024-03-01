@@ -2,7 +2,7 @@
 > In CVPR 2024
 
 ### Training Generative Image Super-Resolution Models by Wavelet-Domain Losses Enables Better Control of Artifacts 
-[Paper Link]() | [Supplementary Material]()
+[Paper Link](https://arxiv.org/abs/2402.19215) | [Supplementary Material](https://drive.google.com/file/d/1MWOiRrN_MtlsRkZhG-A_iwkvXknaF_LX/view?usp=sharing)
 
 [Cansu Korkmaz](https://mandalinadagi.github.io/), [A. Murat Tekalp](http://home.ku.edu.tr/~mtekalp/), [Zafer Dogan](https://mysite.ku.edu.tr/zdogan/)
 
@@ -27,22 +27,22 @@ cd WGSR
 ```
 - Install dependencies. (Python >= 3.7 + CUDA)
 - Require pytorch=1.9.1: [official instructions](https://pytorch.org/get-started/previous-versions/)
-- Install other requirements
+- Install other requirements: 
 ```
-pip install -r requirements.txt
+pip install numpy opencv-python lmdb tensorboardX
 ```
 ## How To Test
 	1. Place your low-resolution images in `test_image/LR` folder.
-	2. Download pretrained models from [Google Drive]() and place them in `test_image/pretrained_models`.
-	2. Run the command: `python test_image/test.py test_image/pretrained_models/WGSR_1lvl_G.pth` (or any other models).
-	3. The results are in `test_image/results` folder.
+	2. Download pretrained models from [Google Drive](https://drive.google.com/drive/folders/19Ur1SF-49erDA8fOoZAx1_Pnt7ZKRT0X?usp=drive_link) and place them in `test_image/pretrained_models`.
+	3. Run the command: `python test_image/test.py test_image/pretrained_models/WGSR_2lvl_G.pth` (or WGSR_1lvl_G.pth).
+	4. The results are in `test_image/results` folder.
 
 ## How to Train
 
-	1. Prepare the datasets which can be downloaded from [Google Drive]().
-	2. Prepare the PSNR-oriented pretrained model (all pretrained models can be downloaded from [Google Drive]()).
-	2. Modify the configuration file `codes/options/train/train_WGSR.json`.
-	3. Run the command `python train.py -opt codes/options/train/train_WGSR.json`. 
+	1. Prepare the datasets which can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1pRmhEmmY-tPF7uH8DuVthfHoApZWJ1QU?usp=sharing).
+	2. Prepare the PSNR-oriented pretrained [RRDB model](https://drive.google.com/file/d/1g6IVLgMR28jisZyw9y-pekiAsq7f2fzV/view?usp=drive_link).
+	3. Modify the configuration file `codes/options/train/train_WGSR.json`.
+	4. Run the command `python train.py -opt codes/options/train/train_WGSR.json`. 
 
 
 ## Contact
