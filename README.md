@@ -30,10 +30,25 @@ cd WGSR
 pip install numpy opencv-python lmdb tensorboardX
 ```
 ## How To Test
-1. Place your low-resolution images in `test_image/LR` folder.
-2. Download pretrained models from [Google Drive](https://drive.google.com/drive/folders/19Ur1SF-49erDA8fOoZAx1_Pnt7ZKRT0X?usp=drive_link) and place them in `test_image/pretrained_models`.
-3. Run the command: `python test_image/test.py test_image/pretrained_models/WGSR_2lvl_G.pth` (or WGSR_1lvl_G.pth).
-4. The results are in `test_image/results` folder.
+Download pretrained models from [Google Drive](https://drive.google.com/drive/folders/19Ur1SF-49erDA8fOoZAx1_Pnt7ZKRT0X?usp=drive_link) and place them in `test_image/pretrained_models`.
+
+If you want to test our model with a dataset folder containing low-resolution images:
+
+```
+cd test_image
+python test.py ./pretrained_models/WGSR_2lvl_G.pth <path to dataset folder>
+```
+
+If you want to test our model with single low-resolution image: 
+First place your low-resolution images in `test_image/LR` folder, then
+```
+cd test_image
+python test.py ./pretrained_models/WGSR_2lvl_G.pth
+```
+
+The super-resolution results are in `test_image/<model_name>/results` folder.
+
+2. The WGSR model trained by 1 level stationary wavelet coefficients (WGSR_1lvl_G.pth) is also provided.
 
 ## How to Train
 1. Prepare the datasets which can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1pRmhEmmY-tPF7uH8DuVthfHoApZWJ1QU?usp=sharing).
