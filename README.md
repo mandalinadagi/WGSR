@@ -53,7 +53,7 @@ The super-resolution results are in `test_image/<model_name>/results` folder.
 ## How to Train
 1. Prepare the datasets which can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1pRmhEmmY-tPF7uH8DuVthfHoApZWJ1QU?usp=sharing).
 2. Prepare the PSNR-oriented pretrained [RRDB model](https://drive.google.com/file/d/1g6IVLgMR28jisZyw9y-pekiAsq7f2fzV/view?usp=drive_link).
-3. Modify the configuration file `codes/options/train/train_WGSR.json`.
+3. Modify the configuration file `codes/options/train/train_WGSR.json`. (dataroot_HR, dataroot_LR, pretrain_model_G)
 4. Run the command `python train.py -opt /options/train/train_WGSR.json`.
    
 Please note that when 2 level stationary wavelet is used, input channel for discriminator model must be set to 6, (options/train/train_WGSR.json line 50 in_nc=6)
