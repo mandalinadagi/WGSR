@@ -4,7 +4,7 @@
 ### Training Generative Image Super-Resolution Models by Wavelet-Domain Losses Enables Better Control of Artifacts 
 [Paper Link](https://arxiv.org/abs/2402.19215) | [Supplementary Material](https://drive.google.com/file/d/1MWOiRrN_MtlsRkZhG-A_iwkvXknaF_LX/view?usp=sharing)
 
-[Cansu Korkmaz](https://mandalinadagi.github.io/), [A. Murat Tekalp](http://home.ku.edu.tr/~mtekalp/), [Zafer Dogan](https://mysite.ku.edu.tr/zdogan/)
+[Cansu Korkmaz](https://mandalinadagi.github.io/), [A. Murat Tekalp](http://mysite.ku.edu.tr/mtekalp/), [Zafer Dogan](https://mysite.ku.edu.tr/zdogan/)
 
 
 <p align="center">
