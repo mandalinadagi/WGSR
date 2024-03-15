@@ -51,6 +51,10 @@ class SRRaGANModel(BaseModel):
                 logger.info('Remove pixel loss.')
                 self.cri_pix = None
 
+            ###setting wavelet filter name and wavelet decomposition level
+            self.filter_name = train_opt['wavelet_filter']
+            self.level = train_opt['wavelet_level']
+
             # G feature loss
             if train_opt['feature_weight'] > 0:
                 l_fea_type = train_opt['feature_criterion']
@@ -131,7 +135,6 @@ class SRRaGANModel(BaseModel):
         self.fake_H = self.netG(self.var_L)
 
         # wavelet init
-        self.filter_name = train_opt['wavelet_filter']
         wavelet = pywt.Wavelet(self.filter_name)
             
         dlo = wavelet.dec_lo
@@ -154,7 +157,9 @@ class SRRaGANModel(BaseModel):
         self.HL_band   = wavelet_sr[:,2:3, :, :]
         self.HH_band   = wavelet_sr[:,3:, :, :]
 
-        if train_opt['wavelet_level'] == 2:
+        self.combined_HF_bands     = torch.cat((self.LH_band, self.HL_band, self.HH_band), axis = 1)       
+
+        if self.level == 2:
 
             wavelet_sr2   = self.sfm(self.LL_band)[0]
             self.LL_band2 = wavelet_sr2[:,0:1, :,:]
@@ -166,7 +171,7 @@ class SRRaGANModel(BaseModel):
             self.combined_HL = torch.cat((self.HL_band, self.HL_band2), axis=1)
             self.combined_HH = torch.cat((self.HH_band, self.HH_band2), axis=1)
 
-        self.combined_HF_bands     = torch.cat((self.combined_LH, self.combined_HL, self.combined_HH), axis = 1)       
+            self.combined_HF_bands     = torch.cat((self.combined_LH, self.combined_HL, self.combined_HH), axis = 1)       
 
         ## wavelet bands of hr image
         hr_img_y       = 16.0 + (self.var_H[:,0:1,:,:]*65.481 + self.var_H[:,1:2,:,:]*128.553 + self.var_H[:,2:,:,:]*24.966)
@@ -177,7 +182,9 @@ class SRRaGANModel(BaseModel):
         self.HL_band_hr   = wavelet_hr[:,2:3, :, :]
         self.HH_band_hr   = wavelet_hr[:,3:, :, :]
 
-        if train_opt['wavelet_level'] == 2:
+        self.combined_HF_bands_hr     = torch.cat((self.LH_band_hr, self.HL_band_hr, self.HH_band_hr), axis = 1)       
+
+        if self.level == 2:
 
             wavelet_hr2  = self.sfm(self.LL_band_hr)[0]
 
@@ -190,9 +197,9 @@ class SRRaGANModel(BaseModel):
             self.combined_HL_hr = torch.cat((self.HL_band_hr, self.HL_band_hr2), axis=1)
             self.combined_HH_hr = torch.cat((self.HH_band_hr, self.HH_band_hr2), axis=1)
 
-        self.combined_HF_bands_hr     = torch.cat((self.combined_LH_hr, self.combined_HL_hr, self.combined_HH_hr), axis = 1)       
+            self.combined_HF_bands_hr     = torch.cat((self.combined_LH_hr, self.combined_HL_hr, self.combined_HH_hr), axis = 1)       
 
-        if train_opt['wavelet_level'] == 1:
+        if self.level == 1:
             l_g_total = 0
             if step % self.D_update_ratio == 0 and step > self.D_init_iters:
                 if self.cri_pix:  # pixel loss
@@ -202,6 +209,7 @@ class SRRaGANModel(BaseModel):
                     l_g_pix_hh = self.l_pix_w_hh * self.cri_pix(self.HH_band, self.HH_band_hr)
                     l_g_total = l_g_total + l_g_pix + l_g_pix_lh + l_g_pix_hl + l_g_pix_hh
                     print("LL: ", l_g_pix, "LH: ", l_g_pix_lh, "HL: ", l_g_pix_hl, "HH: ", l_g_pix_hh)
+
                 if self.cri_fea:  # feature loss
                     #real_fea = self.netF(self.var_H).detach()
                     #fake_fea = self.netF(self.fake_H)
@@ -220,7 +228,7 @@ class SRRaGANModel(BaseModel):
                 self.optimizer_G.step()
 
 
-        elif train_opt['wavelet_level'] == 2:
+        elif self.level == 2:
             l_g_total = 0
             if step % self.D_update_ratio == 0 and step > self.D_init_iters:
                 if self.cri_pix:  # pixel loss
@@ -230,6 +238,7 @@ class SRRaGANModel(BaseModel):
                     l_g_pix_hh = self.l_pix_w_hh * (self.cri_pix(self.HH_band, self.HH_band_hr)) + self.l_pix_w_hh2 * self.cri_pix(self.HH_band2, self.HH_band_hr2)
                     l_g_total = l_g_total + l_g_pix + l_g_pix_lh + l_g_pix_hl + l_g_pix_hh
                     print("LL: ", l_g_pix, "LH: ", l_g_pix_lh, "HL: ", l_g_pix_hl, "HH: ", l_g_pix_hh)
+                    
                 if self.cri_fea:  # feature loss for only high-frequency subbands
                     l_g_fea = self.l_fea_w * self.netF(self.var_H.detach(), self.fake_H)
                     l_g_total += l_g_fea

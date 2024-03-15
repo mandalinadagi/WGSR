@@ -1,5 +1,5 @@
 {
-    "name": "WGSR",
+    "name": "WGSR_1level",
     "use_tb_logger": true,
     "model": "srragan",
     "scale": 4,
@@ -27,7 +27,7 @@
         }
     },
     "path": {
-        "root": "/kuacc/users/ckorkmaz14/hpc_run/mask_guided_wavelet_sr/",
+        "root": "./",
         "pretrain_model_G": "/kuacc/users/ckorkmaz14/hpc_run/mask_guided_wavelet_sr/pretrained_model/RRDB_PSNR_x4_old_arch.pth"
     },
     "network_G": {
@@ -71,7 +71,7 @@
         "pixel_weight_lh": 0.01,
         "pixel_weight_hl": 0.01,
         "pixel_weight_hh": 0.05,
-        "_comment:": "if wavelet decomposition level is 2, set the following 3 variables, else keep them as zero",
+        "_comment:": "if wavelet decomposition level is 2, set the following 3 variables, else keep them as zero, also in_nc (line 50) must set to 6",
         "pixel_weight_lh2": 0,
         "pixel_weight_hl2": 0,
         "pixel_weight_hh2": 0,
