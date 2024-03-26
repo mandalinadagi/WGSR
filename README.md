@@ -59,7 +59,7 @@ The super-resolution results are in `test_image/<model_name>/results` folder.
 Please note that when 2 level stationary wavelet is used, input channel for discriminator model must be set to 6, (options/train/train_WGSR.json line 50 in_nc=6)
 
 ## Additional Results
-Thanks for their great work, our wavelet-domain loss function is implemented by neosr[https://github.com/muslll/neosr/], so please feel free to utilize our loss function with different architectures. Cheers!
+Thanks for their great work, our wavelet-domain loss function is implemented by [neosr](https://github.com/muslll/neosr/), so please feel free to utilize our loss function with different architectures. Cheers!
 
 Here are several visual results from neosr, showing the effectiveness of wavelet-domain loss function. 
 <img src="./figures/neosr_results.png" width="800"/>
