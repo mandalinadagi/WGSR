@@ -35,8 +35,8 @@ model = model.to(device)
 print('Model path {:s}. \nTesting...'.format(model_path))
 
 for idx, path in enumerate(test_img_folder):
-    print(path)
-    base = os.path.splitext(os.path.basename(path))[0][:-3]
+    base = os.path.splitext(os.path.basename(path))[0].split(".")[0]
+    print(base)
     img = cv2.imread(path, cv2.IMREAD_COLOR)
     img = img * 1.0 / 255
     img = torch.from_numpy(np.transpose(img[:, :, [2, 1, 0]], (2, 0, 1))).float()
