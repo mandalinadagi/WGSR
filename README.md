@@ -58,15 +58,9 @@ The super-resolution results are in `test_image/<model_name>/results` folder.
    
 Please note that when 2 level stationary wavelet is used, input channel for discriminator model must be set to 6, (options/train/train_WGSR.json line 50 in_nc=6)
 
-## Additional Results
-Thanks for their great work, our wavelet-domain loss function is also implemented by [neosr](https://github.com/muslll/neosr/), so please feel free to utilize our loss function with different architectures. Cheers!
-
-Here are several visual results from neosr, showing the effectiveness of wavelet-domain loss function. 
-<img src="./figures/neosr_results.png" width="800"/>
-
 ## Citation
 If you find the code helpful in your resarch or work, please cite the following papers.
-
+```
 @inproceedings{korkmaz2024training,
   title={Training Transformer Models by Wavelet Losses Improves Quantitative and Visual Performance in Single Image Super-Resolution},
   author={Korkmaz, Cansu and Tekalp, A. Murat and Dogan, Zafer},
@@ -74,6 +68,13 @@ If you find the code helpful in your resarch or work, please cite the following 
   month={June},
   year={2024}
 }
+```
+
+## Additional Results
+Thanks for their great work, our wavelet-domain loss function is also implemented by [neosr](https://github.com/muslll/neosr/), so please feel free to utilize our loss function with different architectures. Cheers!
+
+Here are several visual results from neosr, showing the effectiveness of wavelet-domain loss function. 
+<img src="./figures/neosr_results.png" width="800"/>
 
 ## Contact
 If you have any questions please email at ckorkmaz14@ku.edu.tr
