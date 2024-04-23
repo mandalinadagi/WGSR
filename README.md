@@ -64,6 +64,16 @@ Thanks for their great work, our wavelet-domain loss function is also implemente
 Here are several visual results from neosr, showing the effectiveness of wavelet-domain loss function. 
 <img src="./figures/neosr_results.png" width="800"/>
 
+## Citation
+If you find the code helpful in your resarch or work, please cite the following papers.
+
+@inproceedings{korkmaz2024training,
+  title={Training Transformer Models by Wavelet Losses Improves Quantitative and Visual Performance in Single Image Super-Resolution},
+  author={Korkmaz, Cansu and Tekalp, A. Murat and Dogan, Zafer},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month={June},
+  year={2024}
+}
 
 ## Contact
 If you have any questions please email at ckorkmaz14@ku.edu.tr
