@@ -16,7 +16,7 @@
 <img src="./figures/img2.png" width="800"/>
 
 
-### Getting Start
+### Getting Started: 
 
 - clone this repository
 ```
