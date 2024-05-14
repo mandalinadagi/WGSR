@@ -6,6 +6,7 @@
 
 [Cansu Korkmaz](https://mandalinadagi.github.io/), [A. Murat Tekalp](http://mysite.ku.edu.tr/mtekalp/), [Zafer Dogan](https://mysite.ku.edu.tr/zdogan/)
 
+📌 [Youtube Video](https://www.youtube.com/watch?v=S3UugbDTxYs)
 
 <p align="center">
   <img height="250" src="./figures/architecture.png">
